@@ -3,8 +3,9 @@
 
 > [MADR on choosing Python framework](#use-fastapi-for-python-implementation-of-oauth-token-management-system)
 > [MADR on choosing Java framework](#use-micronaut-for-java-implementation-of-oauth-token-management-system)
-> [MADR on choosing Golang framework](#use-...-for-go-implementation-of-oauth-token-management-system)
-> [MADR on choosing Python framework](#use-plain-junit5-for-advanced-test-assertions)
+> [MADR on choosing Golang framework](#use-fiber-for-go-implementation-of-oauth-token-management-system)
+> [MADR on choosing programming language](#use-go-for-implementation-of-oauth-token-management-system)
+
 
 ---
 # Use FastAPI for Python Implementation of OAuth Token Management System
@@ -118,7 +119,7 @@ Homepage: <https://micronaut.io/>
 * Bad, because requires custom configuration in advanced cases
 
 ---
-# Use ... for Go Implementation of OAuth Token Management System
+# Use Fiber for Go Implementation of OAuth Token Management System
 
 ## Context and Problem Statement
 
@@ -171,6 +172,52 @@ Homepage: <https://echo.labstack.com/>
 * Good, modular design easy to extend
 * Bad, because not as fast as fiber
 * Bad, because high memory usage under extreme load
+
+---
+# Use Go for Implementation of OAuth Token Management System
+
+## Context and Problem Statement
+
+We are implementing an **OAuth token management** system. The system must handle 20K requests per second. This MADR focuses on selecting the best-performing **programming language**.
+
+## Decision drivers
+
+* Ability to handle 20k RPS (asynchronous support)
+* Support external connection pools seamlessly  
+* Resource-efficiency
+## Considered Options
+
+* Python
+* Go
+* Java
+
+## Decision Outcome
+
+Chosen option: Go because comes out best (see "Pros and Cons of the Options" below).
+
+### Consequences
+
+* Good, because optimized for high throughput
+* Good, because low memo and cpu usage
+* Bad, because spikes on high load
+
+## Pros and Cons of the Options
+
+### Python
+
+* Good, because stable and low CPU + memory utilization
+* Bad, because slow
+
+### Go
+
+* Good, because fast
+* Good, because low memory
+* Bad, because unstable CPU, spikes occur
+
+### Java
+
+* Good, because fast
+* Bad, because weird CPU usage behavior
 
 
 

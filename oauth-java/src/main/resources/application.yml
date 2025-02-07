@@ -1,0 +1,32 @@
+micronaut:
+  server:
+    host: 0.0.0.0
+    port: 8000
+  application:
+    name: oauth-server
+  security:
+    enabled: false
+  cache:
+    caffeine:
+      enabled: true
+      caches:
+        tokens:
+          maximum-size: 1000
+          expire-after-write: 2h
+datasources:
+  default:
+    url: jdbc:sqlserver://oauth.database.windows.net:1433;databaseName=oauth_db
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: uldanone
+    password: 125563_oauth
+    maximumPoolSize: 100  # Equivalent to `pool_size`
+    minimumIdle: 10      # Keep some idle connections
+    connectionTimeout: 30000  # Wait 30s for a connection
+    idleTimeout: 600000  # Close idle connections after 10min
+    maxLifetime: 1800000 
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
